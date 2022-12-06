@@ -4,7 +4,18 @@ import socket
 import threading
 from concurrent.futures import ThreadPoolExecutor
 import time
-import datetime
+
+
+# message category
+# 0，1 election.
+# 2 trader to warehouse, buy. Reply sell number.
+# 3 trader to warehouse, update stock.
+# 4 trader to warehouse, cache.
+# 5 seller to trader, update stock.
+# 6 buyer to trader, buy. Reply sell number.
+# 7 trader to trader: check alive.
+# 8 trader to peers: set trader.
+
 
 lock = threading.RLock()
 sem = threading.Semaphore(20)
@@ -92,6 +103,7 @@ class Peer(object):
         self.alive_peers = []
 
     def seller_update_stock(self):
+        # seller produce their product every 5 second
         print('Seller update stock coroutine start.')
         while True:
             trader_addr, trader_port = random.choice(self.trader_list)
@@ -107,6 +119,7 @@ class Peer(object):
             time.sleep(5)
 
     def trader_listening_no_cache(self):
+        # trader receive buy and update stock request
         print('Trader listening start.')
         while True:
             with sem:
@@ -148,6 +161,7 @@ class Peer(object):
                 conn.close()
 
     def trader_process(self):
+        # trader request for cache and check the status of the other trader
         print('Trader process start.')
         while True:
             time.sleep(0.5)
@@ -186,6 +200,7 @@ class Peer(object):
                             client.close()
 
     def buyer_process(self):
+        # buyer request
         print('Buyer process start.')
         while True:
             time.sleep(0.5)
@@ -211,6 +226,7 @@ class Peer(object):
             client.close()
 
     def election_listening(self):
+        # receive message during election, end when find a trader
         while True:
             conn, _ = self.server.accept()
             request = conn.recv(1024)
@@ -233,6 +249,7 @@ class Peer(object):
             conn.close()
 
     def election(self):
+        # election process
         print(f'Peer {self.peer_id} starting election.')
         alive_peer = []
         larger_peer = []
@@ -246,6 +263,7 @@ class Peer(object):
             f.close()
 
         if not larger_peer:
+            # find the trader
             self.istrader = True
             for peer in alive_peer:
                 fields = peer.split(':')
@@ -259,6 +277,7 @@ class Peer(object):
                 f.close()
             return True
         else:
+            # continue to send message
             for address in larger_peer:
                 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 client.connect(address)
@@ -267,6 +286,7 @@ class Peer(object):
             return False
 
     def peer_listening(self):
+        # receive message for resetting trader
         while True:
             time.sleep(3)
             conn, _ = self.server.accept()
@@ -292,7 +312,6 @@ class Peer(object):
                 self.election_listening()
 
         with ThreadPoolExecutor(5) as executor:
-
             if self.istrader:
                 task1 = executor.submit(self.trader_listening_no_cache())
                 task2 = executor.submit(self.trader_process())
