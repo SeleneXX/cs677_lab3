@@ -1,4 +1,5 @@
 import collections
+import multiprocessing
 import random
 import socket
 import threading
@@ -31,6 +32,7 @@ class Warehouse(object):
         self.item_list = collections.defaultdict(int)
 
     def process(self):
+        print('Warehouse process start.')
         while True:
             with sem:
                 time.sleep(0.5)
@@ -44,8 +46,8 @@ class Warehouse(object):
                     # request_category|product_id|quantity
 
                     if self.item_list[fields[1]] == 0:
-                        conn.send('0')
-                        print(f'Product{self.buyID} not in stock')
+                        conn.send('0'.encode('utf-8'))
+                        print(f'Product{fields[1]} not in stock')
                     else:
                         # print(self.buyNum, fields[2])
                         # print(fields)
@@ -306,20 +308,31 @@ class Peer(object):
         # send all requests
         time.sleep(5)
         # request_category|product_id|seller_address(for reply message)
-        for _ in range(2):
-            if not self.istrader:
-                self.election()
-                self.election_listening()
+        # for _ in range(2):
+        #     if not self.istrader:
+        #         self.election()
+        #         self.election_listening()
 
         with ThreadPoolExecutor(5) as executor:
             if self.istrader:
-                task1 = executor.submit(self.trader_listening_no_cache())
-                task2 = executor.submit(self.trader_process())
+                task1 = executor.submit(self.trader_listening_no_cache)
+                task2 = executor.submit(self.trader_process)
+                # task1 = threading.Thread(target=self.trader_listening_no_cache, args=())
+                # task2 = threading.Thread(target=self.trader_process, args=())
+                # task1.start()
+                # task2.start()
             else:
                 if self.isSeller:
-                    task3 = executor.submit(self.seller_update_stock())
+                    task3 = executor.submit(self.seller_update_stock)
+                    # task3 = multiprocessing.Process(self.seller_update_stock())
+                    # task3.start()
                 elif self.isBuyer:
-                    task4 = executor.submit(self.buyer_process())
-                task5 = executor.submit(self.peer_listening())
+                    task4 = executor.submit(self.buyer_process)
+                    # task4 = multiprocessing.Process(self.buyer_process())
+                    # task4.start()
+                task5 = executor.submit(self.peer_listening)
+                # task5 = multiprocessing.Process(self.peer_listening())
+                # task5.start()
+
 
 
