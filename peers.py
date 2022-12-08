@@ -106,6 +106,11 @@ class Peer(object):
 
     def seller_update_stock(self):
         # seller produce their product every 5 second
+        with open('./trader') as f:
+            for line in f:
+                fields = line.split(':')
+                self.trader_list.append(fields)
+            f.close()
         print('Seller update stock coroutine start.')
         while True:
             trader_addr, trader_port = random.choice(self.trader_list)
@@ -164,6 +169,11 @@ class Peer(object):
     def trader_process(self):
         # trader request for cache and check the status of the other trader
         print('Trader process start.')
+        with open('./trader') as f:
+            for line in f:
+                fields = line.split(':')
+                self.trader_list.append(fields)
+            f.close()
         while True:
             time.sleep(0.5)
             if self.update_cache:
@@ -196,11 +206,19 @@ class Peer(object):
                             addr, port = peer.split(':')
                             client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                             client.connect((addr, int(port)))
-                            client.send(f'{8}|{self.address[0]}-{self.address[1]}'.encode('utf-8'))
+                            with open('./trader', 'w') as f:
+                                f.write(f'{self.address[0]}:{self.address[1]}')
+                                f.close()
+                            client.send(f'{8}'.encode('utf-8'))
                             client.recv(1024)
                             client.close()
 
     def buyer_process(self):
+        with open('./trader') as f:
+            for line in f:
+                fields = line.split(':')
+                self.trader_list.append(fields)
+            f.close()
         # buyer request
         print('Buyer process start.')
         while True:
@@ -235,16 +253,16 @@ class Peer(object):
             data = request.decode('utf-8')
             fields = data.split('|')
 
-            if fields[0] == '0':
-                # after election trader send his address to all peers
-                # request_category|trader_address
-                trader_address, trader_port = fields[1].split('-')
-                self.trader_list.append = (trader_address, trader_port)
-                break
-                conn.send('1'.encode('utf-8'))
-                print("Set new trader.")
-                time.sleep(2)
-            elif fields[0] == '1':
+            # if fields[0] == '0':
+            #     # after election trader send his address to all peers
+            #     # request_category|trader_address
+            #     trader_address, trader_port = fields[1].split('-')
+            #     self.trader_list.append = (trader_address, trader_port)
+            #     break
+            #     conn.send('1'.encode('utf-8'))
+            #     print("Set new trader.")
+            #     time.sleep(2)
+            if fields[0] == '1':
                 # for election
                 if self.election():
                     break
@@ -267,15 +285,18 @@ class Peer(object):
         if not larger_peer:
             # find the trader
             self.istrader = True
-            for peer in alive_peer:
-                fields = peer.split(':')
-                client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                client.connect((fields[1], int(fields[2])))
-                client.send(f'{0}|{self.address[0]}-{self.address[1]}'.encode('utf-8'))
-                client.recv(1024)
-                client.close()
+            # for peer in alive_peer:
+            #     fields = peer.split(':')
+            #     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            #     client.connect((fields[1], int(fields[2])))
+            #     client.send(f'{0}|{self.address[0]}-{self.address[1]}'.encode('utf-8'))
+            #     client.recv(1024)
+            #     client.close()
             with open('./config', 'w') as f:
                 f.writelines(alive_peer)
+                f.close()
+            with open('./trader', 'a') as f:
+                f.write(f'{self.address[0]}:{self.address[1]}')
                 f.close()
             return True
         else:
@@ -300,6 +321,11 @@ class Peer(object):
                 # 1 trader dead, reset trader_list
                 # request_category|trader_address
                 self.trader_list = []
+                with open('./trader') as f:
+                    for line in f:
+                        fields = line.split(':')
+                        self.trader_list.append(fields)
+                    f.close()
                 trader_address, trader_port = fields[1].split('-')
                 self.trader_list.append = (trader_address, trader_port)
 
