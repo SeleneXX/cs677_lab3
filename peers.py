@@ -53,10 +53,10 @@ class Warehouse(object):
                         # print(fields)
                         if self.item_list[fields[1]] >= int(fields[2]):
                             self.item_list[fields[1]] -= int(fields[2])
-                            print(f'Sucessfully buy {fields[2]} product{self.buyID}')
+                            print(f'Sucessfully buy {fields[2]} product{fields[1]}')
                             conn.send(fields[2].encode('utf-8'))
                         else:
-                            print(f'Sucessfully buy {self.item_list[fields[1]]} product{self.buyID}')
+                            print(f'Sucessfully buy {self.item_list[fields[1]]} product{fields[1]}')
                             conn.send(str(self.item_list[fields[1]]).encode('utf-8'))
                             self.item_list[fields[1]] = 0
 
@@ -153,7 +153,6 @@ class Peer(object):
                     client.connect((warehouse_addr, int(warehouse_port)))
                     client.send(message.encode('utf-8'))
                     conn.send(reply)
-                    conn.recv(1024)
                     print('Successfully update.')
                     client.close()
                 elif fields[0] == '7':
@@ -208,7 +207,7 @@ class Peer(object):
             time.sleep(0.5)
             if self.productNum == 0:
                 print('Complete.')
-                self.productNum = random.randint(1, 10)
+                self.productNum = random.randint(1, 5)
             trader_addr, trader_port = random.choice(self.trader_list)
             data = f'{6}|{self.productID}|{self.productNum}'
             client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -223,6 +222,7 @@ class Peer(object):
                     print(f'Fail to buy product{self.productID}.')
                 else:
                     print(f'Successfully buy {buy_num} product{self.productID}.')
+                self.productNum -= buy_num
             except:
                 print('Fail to send selling item to trader, try again.')
             client.close()
