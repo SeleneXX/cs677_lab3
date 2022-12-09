@@ -106,11 +106,11 @@ class Peer(object):
 
     def seller_update_stock(self):
         # seller produce their product every 5 second
-        with open('./trader') as f:
-            for line in f:
-                fields = line.split(':')
-                self.trader_list.append(fields)
-            f.close()
+        # with open('./trader') as f:
+        #     for line in f:
+        #         fields = line.split(':')
+        #         self.trader_list.append(fields)
+        #     f.close()
         print('Seller update stock coroutine start.')
         while True:
             trader_addr, trader_port = random.choice(self.trader_list)
@@ -169,11 +169,11 @@ class Peer(object):
     def trader_process(self):
         # trader request for cache and check the status of the other trader
         print('Trader process start.')
-        with open('./trader') as f:
-            for line in f:
-                fields = line.split(':')
-                self.trader_list.append(fields)
-            f.close()
+        # with open('./trader') as f:
+        #     for line in f:
+        #         fields = line.split(':')
+        #         self.trader_list.append(fields)
+        #     f.close()
         while True:
             time.sleep(0.5)
             if self.update_cache:
@@ -193,9 +193,10 @@ class Peer(object):
                 self.update_cache = False
 
             for addr, port in self.trader_list:
-                if addr != self.address[0]:
+                if port != self.address[1]:
                     try:
                         # check the status of the other trader
+                        client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                         client.connect((addr, int(port)))
                         client.send(f'{7}'.encode('utf-8'))
                         print('The other trader alive.')
@@ -211,14 +212,14 @@ class Peer(object):
                                 f.close()
                             client.send(f'{8}'.encode('utf-8'))
                             client.recv(1024)
-                            client.close()
+                    client.close()
 
     def buyer_process(self):
-        with open('./trader') as f:
-            for line in f:
-                fields = line.split(':')
-                self.trader_list.append(fields)
-            f.close()
+        # with open('./trader') as f:
+        #     for line in f:
+        #         fields = line.split(':')
+        #         self.trader_list.append(fields)
+        #     f.close()
         # buyer request
         print('Buyer process start.')
         while True:
