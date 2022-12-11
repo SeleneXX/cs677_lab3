@@ -1,4 +1,4 @@
-import peers
+import peer
 
-warehouse = peers.Warehouse(('127.0.0.1', 8000))
+warehouse = peer.Warehouse(('127.0.0.1', 8000))
 warehouse.process()

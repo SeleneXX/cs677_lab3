@@ -1,0 +1,153 @@
+2022-12-11 02:05:03, in stock 5 product0!
+2022-12-11 02:05:07, in stock 5 product0!
+2022-12-11 02:05:07, ship out 5 product0!
+2022-12-11 02:05:07, in stock 5 product0!
+2022-12-11 02:05:07, in stock 5 product0!
+2022-12-11 02:05:07, ship out 2 product0!
+2022-12-11 02:05:10, ship out 5 product0!
+2022-12-11 02:05:10, ship out 2 product0!
+2022-12-11 02:05:10, ship out 2 product0!
+2022-12-11 02:05:10, ship out 1 product0!
+2022-12-11 02:05:10, in stock 5 product0!
+2022-12-11 02:05:11, ship out 5 product0!
+2022-12-11 02:05:11, ship out 5 product0!
+2022-12-11 02:05:11, Oversell!
+2022-12-11 02:05:11, ship out 5 product0!
+2022-12-11 02:05:11, Oversell!
+2022-12-11 02:05:11, in stock 5 product0!
+2022-12-11 02:05:11, ship out 1 product0!
+2022-12-11 02:05:14, ship out 4 product0!
+2022-12-11 02:05:14, ship out 3 product0!
+2022-12-11 02:05:14, Oversell!
+2022-12-11 02:05:14, ship out 1 product0!
+2022-12-11 02:05:14, Oversell!
+2022-12-11 02:05:14, in stock 5 product0!
+2022-12-11 02:05:14, in stock 5 product0!
+2022-12-11 02:05:17, ship out 3 product0!
+2022-12-11 02:05:17, ship out 3 product0!
+2022-12-11 02:05:17, ship out 3 product0!
+2022-12-11 02:05:17, ship out 1 product0!
+2022-12-11 02:05:17, ship out 3 product0!
+2022-12-11 02:05:17, Oversell!
+2022-12-11 02:05:18, ship out 2 product0!
+2022-12-11 02:05:18, Oversell!
+2022-12-11 02:05:18, ship out 1 product0!
+2022-12-11 02:05:18, Oversell!
+2022-12-11 02:05:18, ship out 2 product0!
+2022-12-11 02:05:18, Oversell!
+2022-12-11 02:05:18, ship out 5 product0!
+2022-12-11 02:05:18, Oversell!
+2022-12-11 02:05:18, ship out 5 product0!
+2022-12-11 02:05:18, Oversell!
+2022-12-11 02:05:21, ship out 3 product0!
+2022-12-11 02:05:21, Oversell!
+2022-12-11 02:05:21, in stock 5 product0!
+2022-12-11 02:05:21, in stock 5 product0!
+2022-12-11 02:05:21, ship out 2 product0!
+2022-12-11 02:05:21, ship out 5 product0!
+2022-12-11 02:05:23, ship out 5 product0!
+2022-12-11 02:05:23, Oversell!
+2022-12-11 02:05:23, ship out 5 product0!
+2022-12-11 02:05:23, Oversell!
+2022-12-11 02:05:23, ship out 5 product0!
+2022-12-11 02:05:23, Oversell!
+2022-12-11 02:05:23, ship out 5 product0!
+2022-12-11 02:05:23, Oversell!
+2022-12-11 02:05:23, ship out 5 product0!
+2022-12-11 02:05:23, Oversell!
+2022-12-11 02:05:25, ship out 3 product0!
+2022-12-11 02:05:25, Oversell!
+2022-12-11 02:05:25, ship out 3 product0!
+2022-12-11 02:05:25, Oversell!
+2022-12-11 02:05:25, in stock 5 product0!
+2022-12-11 02:05:25, ship out 2 product0!
+2022-12-11 02:05:25, ship out 3 product0!
+2022-12-11 02:05:26, in stock 5 product0!
+2022-12-11 02:05:26, ship out 3 product0!
+2022-12-11 02:05:26, ship out 1 product0!
+2022-12-11 02:05:26, ship out 1 product0!
+2022-12-11 02:05:26, ship out 1 product0!
+2022-12-11 02:05:26, Oversell!
+2022-12-11 02:05:30, ship out 1 product0!
+2022-12-11 02:05:30, Oversell!
+2022-12-11 02:05:30, ship out 1 product0!
+2022-12-11 02:05:30, Oversell!
+2022-12-11 02:05:30, in stock 5 product0!
+2022-12-11 02:05:30, ship out 1 product0!
+2022-12-11 02:05:30, ship out 4 product0!
+2022-12-11 02:05:32, ship out 3 product0!
+2022-12-11 02:05:32, Oversell!
+2022-12-11 02:05:32, ship out 3 product0!
+2022-12-11 02:05:32, Oversell!
+2022-12-11 02:05:32, in stock 5 product0!
+2022-12-11 02:05:32, ship out 3 product0!
+2022-12-11 02:05:32, ship out 2 product0!
+2022-12-11 02:05:33, ship out 4 product0!
+2022-12-11 02:05:33, Oversell!
+2022-12-11 02:05:33, ship out 4 product0!
+2022-12-11 02:05:33, Oversell!
+2022-12-11 02:05:33, ship out 4 product0!
+2022-12-11 02:05:33, Oversell!
+2022-12-11 02:05:33, ship out 4 product0!
+2022-12-11 02:05:33, Oversell!
+2022-12-11 02:05:33, in stock 5 product0!
+2022-12-11 02:05:35, ship out 2 product0!
+2022-12-11 02:05:35, ship out 2 product0!
+2022-12-11 02:05:35, ship out 2 product0!
+2022-12-11 02:05:35, Oversell!
+2022-12-11 02:05:35, ship out 2 product0!
+2022-12-11 02:05:35, Oversell!
+2022-12-11 02:05:35, ship out 2 product0!
+2022-12-11 02:05:35, Oversell!
+2022-12-11 02:05:38, in stock 5 product0!
+2022-12-11 02:05:38, ship out 1 product0!
+2022-12-11 02:05:38, ship out 3 product0!
+2022-12-11 02:05:38, ship out 2 product0!
+2022-12-11 02:05:38, Oversell!
+2022-12-11 02:05:38, ship out 4 product0!
+2022-12-11 02:05:38, Oversell!
+2022-12-11 02:05:39, ship out 2 product0!
+2022-12-11 02:05:39, Oversell!
+2022-12-11 02:05:39, ship out 2 product0!
+2022-12-11 02:05:39, Oversell!
+2022-12-11 02:05:39, ship out 2 product0!
+2022-12-11 02:05:39, Oversell!
+2022-12-11 02:05:39, ship out 2 product0!
+2022-12-11 02:05:39, Oversell!
+2022-12-11 02:05:39, in stock 5 product0!
+2022-12-11 02:05:42, in stock 5 product0!
+2022-12-11 02:05:42, ship out 5 product0!
+2022-12-11 02:05:42, ship out 5 product0!
+2022-12-11 02:05:42, ship out 5 product0!
+2022-12-11 02:05:42, Oversell!
+2022-12-11 02:05:42, ship out 5 product0!
+2022-12-11 02:05:42, Oversell!
+2022-12-11 02:05:45, ship out 5 product0!
+2022-12-11 02:05:45, Oversell!
+2022-12-11 02:05:45, ship out 5 product0!
+2022-12-11 02:05:45, Oversell!
+2022-12-11 02:05:45, ship out 5 product0!
+2022-12-11 02:05:45, Oversell!
+2022-12-11 02:05:45, in stock 5 product0!
+2022-12-11 02:05:45, in stock 5 product0!
+2022-12-11 02:05:48, ship out 1 product0!
+2022-12-11 02:05:48, ship out 5 product0!
+2022-12-11 02:05:48, ship out 4 product0!
+2022-12-11 02:05:48, ship out 4 product0!
+2022-12-11 02:05:48, Oversell!
+2022-12-11 02:05:48, ship out 4 product0!
+2022-12-11 02:05:48, Oversell!
+2022-12-11 02:05:49, ship out 4 product0!
+2022-12-11 02:05:49, Oversell!
+2022-12-11 02:05:49, ship out 1 product0!
+2022-12-11 02:05:49, Oversell!
+2022-12-11 02:05:49, ship out 1 product0!
+2022-12-11 02:05:49, Oversell!
+2022-12-11 02:05:49, in stock 5 product0!
+2022-12-11 02:05:49, ship out 1 product0!
+2022-12-11 02:05:52, ship out 4 product0!
+2022-12-11 02:05:52, in stock 5 product0!
+2022-12-11 02:05:52, ship out 2 product0!
+2022-12-11 02:05:52, ship out 3 product0!
+2022-12-11 02:05:52, ship out 3 product0!
+2022-12-11 02:05:52, Oversell!
